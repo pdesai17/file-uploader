@@ -1,0 +1,11 @@
+.pdf-chat-container {
+  display: flex;
+  border: 1px solid black;
+  height: 900px;
+}
+.chat-container {
+  flex: 1;
+}
+.pdf-viewer-container {
+  flex: 1;
+}

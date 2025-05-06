@@ -1,0 +1,43 @@
+<div
+  *ngIf="!isFileUploading && !isFileReceived"
+  class="upload-container"
+  (drop)="onDrop($event)"
+>
+  <div class="upload-card">
+    <div class="upload-icon">
+      <i
+        class="fa-solid fa-cloud-arrow-up"
+        style="font-size: 40px; color: #a78bfa"
+      ></i>
+    </div>
+    <div class="upload-text">Upload PDF to start chatting</div>
+    <div class="upload-subtext">Click or drag and drop your file here</div>
+    <form method="post" enctype="multipart/form-data">
+      <input
+        type="file"
+        accept="application/pdf"
+        class="file-input"
+        (change)="onFileSelected($event)"
+      />
+    </form>
+  </div>
+</div>
+
+<div class="uploading-container" *ngIf="isFileUploading">
+  <div class="uploading-content">
+    <div class="uploading-header">
+      <span class="spinner"></span>
+      <span class="uploading-text">Uploading PDF</span>
+      <span class="uploading-percent">100%</span>
+    </div>
+    <p-progressBar
+      [value]="100"
+      class="custom-progress-bar"
+      color="#7c3aed"
+    ></p-progressBar>
+  </div>
+</div>
+
+<div *ngIf="isFileReceived">
+  <app-pdf-chat-container></app-pdf-chat-container>
+</div>

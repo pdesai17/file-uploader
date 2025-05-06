@@ -1,0 +1,75 @@
+<div class="chatbot-container">
+  <!-- Header with status box -->
+  <!-- <div class="header-status-box">
+    <i class="fa-solid fa-user" style="color: royalblue"></i>
+    <div class="header-content">
+      <span class="title">What tools is the candidate familiar with?</span>
+    </div>
+  </div> -->
+
+  <!-- Chat area -->
+  <div *ngIf="!quesAnsPair.length" class="document-ready-box">
+    <div class="header" style="display: flex; align-items: center; gap: 8px">
+      <i class="fa-solid fa-file" style="color: #a259ff; font-size: 1.5em"></i>
+      <span class="title"><b>Your document is ready!</b></span>
+    </div>
+    <div
+      class="suggestions"
+      style="
+        margin-top: 8px;
+        background: #f8f0ff;
+        padding: 12px;
+        border-radius: 8px;
+      "
+    >
+      <p style="margin-bottom: 6px">
+        You can now ask questions about your document. For example:
+      </p>
+      <ul style="margin: 0 0 0 18px; padding: 0; color: #7c4dff">
+        <li>"What is the main topic of this document?"</li>
+        <li>"Can you summarize the key points?"</li>
+        <li>"What are the conclusions or recommendations?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngFor="let pair of quesAnsPair">
+    <!-- User ques area start-->
+    <div class="header-status-box">
+      <i class="fa-solid fa-user" style="color: royalblue"></i>
+      <div class="header-content">
+        <span class="title">{{ pair["ques"] }}</span>
+      </div>
+    </div>
+    <!-- User ques area end-->
+
+    <!-- chat bot ans area start-->
+    <div class="chat-area">
+      <div class="bot-message">
+        <div class="message-content">
+          <div style="display: flex">
+            <i class="fa-solid fa-robot" style="color: blueviolet"></i>
+            <span class="spinner" *ngIf="pair['isAnsLoading']"></span>
+            <div class="bot-answer">
+              <p>{{ pair["ans"] }}</p>
+              <!-- <div class="page-label">{{ pageLabel }}</div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- chat bot ans area end-->
+  </div>
+</div>
+
+<!-- Input area -->
+<div class="input-area">
+  <input
+    [(ngModel)]="userInput"
+    (keyup.enter)="sendMessage()"
+    placeholder="Ask about the document..."
+  />
+  <button (click)="sendMessage()">
+    <span class="send-icon">&#9658;</span>
+  </button>
+</div>
