@@ -1,0 +1,20 @@
+{
+  "name": "fileuploader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd frontend && ng serve",
+    "server": "cd backend && nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "ng2-pdf-viewer": "^9.1.5",
+    "nodemon": "^3.1.10"
+  }
+}
