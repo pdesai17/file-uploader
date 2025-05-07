@@ -54,16 +54,10 @@ export class UploadFileComponent implements OnInit {
         this.uploadFileService.filePath.next(pdfUrl);
         this.isFileUploading = false;
         this.isFileReceived = true;
-        //navigate to notebook container;
-        // this.router.navigateByUrl('/notebook');
       },
       error: (err) => {
         console.error(err);
       },
     });
-
-    // setTimeout(() => {
-    //   this.router.navigateByUrl('/notebook');a
-    // }, 2000);
   }
 }

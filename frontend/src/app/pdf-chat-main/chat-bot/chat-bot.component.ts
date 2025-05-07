@@ -9,26 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ChatBotComponent implements OnInit {
   userInput = '';
 
-  botAnswer: string[] = [
-    `The candidate is familiar with a variety of tools. For web development, they use React, Angular, Node.js, and Nest.js. They have experience with RESTful APIs, database optimization, and deploying web applications. They are also proficient with cloud platforms such as AWS and Azure.`,
-    `In terms of DevOps, they have a strong background in SDLC, version control using GitHub, and Azure DevOps. They also have hands-on experience with Docker, Kubernetes, and performance monitoring tools like Datadog.`,
-    `For programming, they are skilled in JavaScript, Python, TypeScript, and C#. They use frameworks and libraries like Express.js, Flask, Django, and Node.js. They are familiar with MongoDB, MSSQL, and NoSQL databases. Other tools they use include Postman for API testing and development.`,
-  ];
-  pageLabel = 'Page 1';
-
   quesAnsPair = [];
 
-  answerLoading: boolean = false;
-
   quesId = 1;
+
   constructor(private chatService: ChatService) {}
-  ngOnInit(): void {
-    // let ques = 'What tools is the candidate familiar with?';
-    // this.quesAnsPair.push({
-    //   ques: ques,
-    //   ans: this.botAnswer,
-    // });
-  }
+  ngOnInit(): void {}
 
   sendMessage() {
     let params = {};
